@@ -14,6 +14,12 @@
 # EXTERNAL cache entries
 ########################
 
+//No help, variable specified on the command line.
+CCACHE_ENABLE:UNINITIALIZED=1
+
+//Path to a program.
+CCACHE_FOUND:FILEPATH=C:/ESP/tools/tools/ccache/3.7/ccache.exe
+
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/ESP/tools/tools/xtensa-esp32-elf/esp-2019r2-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar.exe
 
@@ -226,6 +232,9 @@ ENABLE_TESTING:BOOL=
 //Build mbed TLS with zlib library.
 ENABLE_ZLIB_SUPPORT:BOOL=OFF
 
+//No help, variable specified on the command line.
+ESP_PLATFORM:UNINITIALIZED=1
+
 //GCC is not 5.2.0 version
 GCC_NOT_5_2_0:STRING=1
 
@@ -246,6 +255,9 @@ MCONF:FILEPATH=C:/ESP/tools/tools/mconf/v4.6.0.0-idf-20190628/mconf-idf.exe
 
 //Path to a program.
 PERL_EXECUTABLE:FILEPATH=PERL_EXECUTABLE-NOTFOUND
+
+//No help, variable specified on the command line.
+PYTHON_DEPS_CHECKED:UNINITIALIZED=1
 
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=C:/ESP/tools/python_env/idf4.0_py3.7_env/Scripts/python.exe
