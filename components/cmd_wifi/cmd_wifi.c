@@ -12,11 +12,10 @@
 #include "esp_log.h"
 #include "esp_console.h"
 #include "argtable3/argtable3.h"
-#include "cmd_wifi.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/event_groups.h"
 #include "esp_wifi.h"
-#include "esp_netif.h"
+//#include "esp_netif.h"
 #include "esp_event.h"
 #include "cmd_wifi.h"
 
@@ -24,6 +23,7 @@
 
 static EventGroupHandle_t wifi_event_group;
 const int CONNECTED_BIT = BIT0;
+volatile bool wifiConnectFlag = false;
 
 
 static void event_handler(void* arg, esp_event_base_t event_base,
@@ -33,6 +33,7 @@ static void event_handler(void* arg, esp_event_base_t event_base,
         esp_wifi_connect();
         xEventGroupClearBits(wifi_event_group, CONNECTED_BIT);
     } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
+    	wifiConnectFlag = true;
         xEventGroupSetBits(wifi_event_group, CONNECTED_BIT);
     }
 }
